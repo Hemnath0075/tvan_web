@@ -44,7 +44,7 @@ function Navbar() {
   };
   return (
     <>
-      <div className="w-full bg-[#E3F4F4] h-[10vh] border-b-2 flex items-center justify-between">
+      <div className="w-full bg-[#FFF7F7] h-[10vh]  flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
           <img src={logo} alt="" className="h-[8vh]" />
           <div className="w-[30vw] flex flex-row items-center ">
@@ -85,7 +85,7 @@ function Navbar() {
             />
             {userDiv && (
               <div
-                className="absolute w-[20vw] bg-white h-[30vh] right-[8%] top-[7%] rounded-md border-2 p-[1%] flex flex-col justify-evenly"
+                className="absolute w-[20vw] z-10 bg-white h-[30vh] right-[8%] top-[7%] rounded-md border-2 p-[1%] flex flex-col justify-evenly"
                 onMouseOver={() => setUserDiv(true)}
                 onMouseLeave={() => setUserDiv(false)}
               >
@@ -131,7 +131,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="w-full bg-[#C4DFDF] h-[6vh] border-b-2 flex items-center justify-evenly">
+      <div className="w-full bg-[#DADADA] h-[6vh] flex items-center justify-evenly font-bold text-black">
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
           HOME
         </h3>

@@ -10,7 +10,7 @@ function AdminLogin() {
     formState: { errors },
   } = useForm();
   return (
-    <div className="min-h-screen w-full flex justify-center items-center bg-[#EEE7DF]">
+    <div className="min-h-screen w-full flex justify-center items-center bg-[#fff2fb]">
       <div className="sm:w-[70vw] md:w-[50vw] h-[90vh] bg-white border-2 border-black rounded-md flex flex-col justify-evenly items-center p-4">
         <div className="w-full flex justify-center items-center">
           <img src={logo} alt="" className="" />
