@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans','PT Sans', sans-serif;
 }
 
 .ant-modal{
@@ -29,6 +29,14 @@ input:focus{
 }
 .slick-next:before{
   display: none;
+}
+
+.footer{
+  border-top: 1px solid rgba(0,0,0,.2);
+}
+
+.card{
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
 
 /* .text {
