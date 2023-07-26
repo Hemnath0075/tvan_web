@@ -44,7 +44,7 @@ function Navbar() {
   };
   return (
     <>
-      <div className="w-full bg-[#FFF7F7] h-[10vh]  flex items-center justify-between">
+      <div className="w-full bg-[#F9F5F6] h-[10vh]  flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
           <img src={logo} alt="" className="h-[8vh]" />
           <div className="w-[30vw] flex flex-row items-center ">
@@ -131,7 +131,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="w-full bg-[#DADADA] h-[6vh] flex items-center justify-evenly font-bold text-black">
+      <div className="w-full bg-[#F8E8EE] h-[6vh] flex items-center justify-evenly font-bold text-black">
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
           HOME
         </h3>
