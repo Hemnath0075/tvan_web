@@ -11,14 +11,13 @@ import PrevArrow from "../../assets/icons/arrow_back_ios_FILL0_wght400_GRAD0_ops
 import NextArrow from "../../assets/icons/arrow_forward_ios_FILL0_wght400_GRAD0_opsz48.svg";
 import Footer from "../../Components/Footer/Footer";
 import goldScheme1 from "../../assets/images/goldscheme1.png";
-import Product1 from '../../assets/images/product1.png';
-import Product2 from '../../assets/images/product2.png';
-import Product3 from '../../assets/images/product3.png';
-import Product4 from '../../assets/images/product4.png';
-import Product5 from '../../assets/images/product6.png';
-import Product6 from '../../assets/images/product10.png';
-import Product7 from '../../assets/images/product11.png';
-
+import Product1 from "../../assets/images/product1.png";
+import Product2 from "../../assets/images/product2.png";
+import Product3 from "../../assets/images/product3.png";
+import Product4 from "../../assets/images/product4.png";
+import Product5 from "../../assets/images/product6.png";
+import Product6 from "../../assets/images/product10.png";
+import Product7 from "../../assets/images/product11.png";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -190,38 +189,45 @@ function Home() {
         <div className="w-full flex justify-center items-center flex-col">
           <h2 className="text-[4vmin]">Shop By Category</h2>
           <div className="h-[50vh] bg-white">
-            <div className="bg-black h-[50vh] w-[90vw] flex flex-row gap-4">
+            <div className="bg-[#F8F6F4] h-[50vh] w-[90vw] flex flex-row gap-4">
               <div className="flex flex-col basis-[40%] gap-4">
-                <div className="flex flex-row basis-[50%] gap-4">
+                <div className="flex flex-row basis-[50%] gap-4 rounded-md">
                   <div className="grow_flex bg-red-50 rounded-md">
-                    <img src={Product1} alt="" />
+                    <img src={Product1} alt="" className="rounded-md image_grid cursor-pointer" />
                   </div>
                   <div className="grow_flex bg-red-50 rounded-md">
-                  <img src={Product4} alt="" className=""/>
+                    <img src={Product4} alt="" className="rounded-md image_grid cursor-pointer" />
                   </div>
                 </div>
-                <div className="basis-[50%] bg-blue-200 rounded-md">
-                  <img src={Product2} alt="" className=""/>
+                <div className="basis-[50%] bg-blue-200 rounded-md overflow-hidden">
+                  <img src={Product2} alt="" className="rounded-md image_grid object-cover cursor-pointer" />
                 </div>
               </div>
-              <div className="basis-[20%] bg-slate-400">
-                <img src={Product3} alt="" />
+              <div className="basis-[20%] bg-slate-400 rounded-md">
+                <img
+                  src={Product3}
+                  alt=""
+                  className="rounded-md image_grid cursor-pointer"
+                />
               </div>
               <div className="flex flex-col basis-[40%] gap-4">
-                <div className="basis-[50%] bg-blue-200 rounded-md">
-                <img src={Product5} alt="" />
+                <div className="basis-[50%] bg-blue-200 rounded-md overflow-hidden">
+                  <img src={Product5} alt="" className="object-cover image_grid cursor-pointer" />
                 </div>
                 <div className="flex flex-row basis-[50%] gap-4">
                   <div className="grow_flex bg-red-50 rounded-md">
-                  <img src={Product6} alt="" />
+                    <img src={Product6} alt="" className="rounded-md image_grid cursor-pointer" />
                   </div>
                   <div className="grow_flex bg-red-50 rounded-md">
-                  <img src={Product7} alt="" />
+                    <img src={Product7} alt="" className="rounded-md image_grid cursor-pointer" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-full flex justify-center items-center flex-col">
+          <h2 className="text-[4vmin]">Popular Products</h2>
         </div>
       </div>
       <Footer />

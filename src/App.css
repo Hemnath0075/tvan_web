@@ -43,6 +43,10 @@ input:focus{
   flex: 1 1 50%;
 }
 
+.image_grid{
+  height: 100% !important;
+  width: 100% !important;
+}
 /* .text {
   white-space: nowrap; */
   /* overflow: hidden; */
