@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/tvan.png";
 import user from "../../assets/icons/person_FILL0_wght400_GRAD0_opsz48.svg";
 import bag from "../../assets/icons/shopping_bag_FILL0_wght400_GRAD0_opsz48.svg";
@@ -11,10 +11,12 @@ import loginImage from "../../assets/images/login.png";
 import { useForm } from "react-hook-form";
 import { UserOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import playStoreImage from "../../assets/images/google-play.png";
+import axios from "axios";
 
 function Navbar() {
   const [userDiv, setUserDiv] = useState(false);
   const [isLoginModal, setIsLoginModal] = useState(false);
+  const [priceData,setPriceData]=useState(false);
   const {
     register,
     handleSubmit,
@@ -42,6 +44,22 @@ function Navbar() {
     vertical: true,
     verticalSwiping: true,
   };
+  useEffect(()=>{
+    const getTodaysPrice=async()=>{
+      const currentDate = new Date();
+      console.log(currentDate)
+      // Extract year, month, and day from the date
+      const year = currentDate.getFullYear();
+      const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
+      const day = String(currentDate.getDate()).padStart(2, '0');
+      console.log(day)
+      const formattedDate = `${year}-${month}-${day}`;
+      const data = await axios.get(`http://localhost:3200/getTodayPrice?date=${formattedDate}`)
+      setPriceData(data.data)
+    }
+    getTodaysPrice();
+  },[])
+  console.log(priceData)
   return (
     <>
       <div className="w-full bg-[#F9F5F6] h-[10vh]  flex items-center justify-between">
@@ -55,14 +73,14 @@ function Navbar() {
               <h3>
                 {" "}
                 Gold 22K 1 Gram –{" "}
-                <span className="text-red-400">₹ 5490.00</span>
+                <span className="text-red-400">₹ {priceData[1]?.SRATE}</span>
               </h3>
               <h3>
                 Gold 22k 8 Gram –{" "}
-                <span className="text-red-400">₹ 43920.00</span>
+                <span className="text-red-400">₹ {priceData[1]?.SRATE * 8}</span>
               </h3>
               <h3>
-                Silver 1 Gram – <span className="text-red-400">₹ 75.50</span>
+                Silver 1 Gram – <span className="text-red-400">₹ {priceData[0]?.SRATE}</span>
               </h3>
             </Slider>
           </div>
