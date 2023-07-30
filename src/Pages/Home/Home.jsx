@@ -18,6 +18,9 @@ import Product4 from "../../assets/images/product4.png";
 import Product5 from "../../assets/images/product6.png";
 import Product6 from "../../assets/images/product10.png";
 import Product7 from "../../assets/images/product11.png";
+import ProductCard from "../../Components/ProductCard";
+import SchemePlan from '../../assets/images/schemeBanner.png';
+import Star from '../../assets/images/star-svgrepo-com (1).svg'
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -58,44 +61,6 @@ function SamplePrevArrow(props) {
 }
 
 function Home() {
-  // useEffect(()=>{
-  // fetch('https://savingsapi.vedhatechnology.com/api/GetTodaysRate').then(()=>console.log("done"))
-  // const getData=async()=>{
-  //   const res=await axios.post('https://savingsapi.vedhatechnology.com/api/GetTodaysRate',{
-  //   "Date":"2022-09-16",
-  //   headers: {
-  //     "Cache-Control": "no-cache",
-  //     "Content-Type": "application/x-www-form-urlencoded",
-  //   },
-  // },)
-  // console.log(res)
-  // }
-  // let loginInfo = {
-
-  // };
-  // fetch('https://savingsapi.vedhatechnology.com/web/api/login', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Accept': 'application/json',
-  //     'Content-type': 'application/json'
-  //   },
-  //   body: {
-  //     "Username":"hemnath",
-  //     "Password":"hemnath",
-  //   },
-  // })
-  // fetch('https://savingsapi.vedhatechnology.com/api/GetTodaysRate', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Accept': 'application/json',
-  //     'Content-type': 'application/json'
-  //   },
-  //   body: {
-  //     "Date":"2022-09-16",
-  //   },
-  // })
-  // getData();
-  // },[])
   const sliderSettings = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -107,8 +72,18 @@ function Home() {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  };
   return (
-    <div className="min-h-screen w-full bg-[#F8F6F4]">
+    <div className="min-h-screen w-full bg-white">
       <Navbar />
       <div className="">
         <div className="">
@@ -118,89 +93,125 @@ function Home() {
             <img src={Banner3} alt="" />
           </Slider>
         </div>
-        <div className="w-full flex justify-center items-center flex-col">
-          <h2 className="text-[4vmin]">Gold Savings Scheme</h2>
+        <div className="w-full flex justify-center items-center flex-col px-[3vw]">
+          <h2 className="text-[4vmin] py-8">Gold <span className="text-[#468B93]">Savings Scheme</span></h2>
           <div className="flex flex-row px-[1%] w-full justify-between">
-            <div className="w-[30vw] h-auto bg-white rounded-md card">
-              <img
-                src="https://www.radhajewellers.com/images/feature-pic-2.jpg"
-                alt=""
-                className="w-[40vw] h-[30vh] rounded-t-md"
-              />
-              <div className="p-4">
-                <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[15px] h-[15px] bg-black rounded-[50%]"></div>
-                  <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+            <div className="flex flex-row px-[1%] w-full justify-evenly gap-4">
+              <div className="w-[30vw] h-auto bg-white rounded-md card">
+                <img
+                  src="https://www.radhajewellers.com/images/feature-pic-2.jpg"
+                  alt=""
+                  className="w-[40vw] h-[30vh] rounded-t-md"
+                />
+                <div className="p-4">
+                  <div className="flex flex-row justify-start items-center gap-4">
+                    <div className="w-[20px] h-[20px]">
+                      <img src={Star} alt="" />
+                    </div>
+                    <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                  </div>
+                  <div className="flex flex-row justify-start items-center gap-4">
+                  <div className="w-[20px] h-[20px]">
+                      <img src={Star} alt="" />
+                    </div>
+                    <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                  </div>
+                  <div className="flex flex-row justify-start items-center gap-4">
+                  <div className="w-[20px] h-[20px]">
+                      <img src={Star} alt="" />
+                    </div>
+                    <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                  </div>
                 </div>
-                <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[1vw] h-[2vh] bg-black rounded-[50%]"></div>
-                  <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
-                </div>
-                <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[1vw] h-[2vh] bg-black rounded-[50%]"></div>
-                  <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+              </div>
+              <div className="w-[30vw] h-auto bg-white rounded-md card">
+                <img
+                  src="https://www.radhajewellers.com/images/feature-pic-2.jpg"
+                  alt=""
+                  className="w-[40vw] h-[30vh] rounded-t-md"
+                />
+                <div className="p-4">
+                  <div className="flex flex-row justify-start items-center gap-4">
+                  <div className="w-[20px] h-[20px]">
+                      <img src={Star} alt="" />
+                    </div>
+                    <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                  </div>
+                  <div className="flex flex-row justify-start items-center gap-4">
+                  <div className="w-[20px] h-[20px]">
+                      <img src={Star} alt="" />
+                    </div>
+                    <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                  </div>
+                  <div className="flex flex-row justify-start items-center gap-4">
+                  <div className="w-[20px] h-[20px]">
+                      <img src={Star} alt="" />
+                    </div>
+                    <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                  </div>
                 </div>
               </div>
             </div>
+            {/* <div className="">
             <div className="w-[30vw] h-auto bg-white rounded-md card">
-              <img
-                src="https://www.radhajewellers.com/images/feature-pic-2.jpg"
-                alt=""
-                className="w-[40vw] h-[30vh] rounded-t-md"
-              />
-              <div className="p-4">
-                <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[1vw] h-[2vh] bg-black rounded-[50%]"></div>
-                  <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
-                </div>
-                <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[1vw] h-[2vh] bg-black rounded-[50%]"></div>
-                  <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
-                </div>
-                <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[1vw] h-[2vh] bg-black rounded-[50%]"></div>
-                  <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                <img
+                  src="https://www.radhajewellers.com/images/feature-pic-2.jpg"
+                  alt=""
+                  className="w-[40vw] h-[30vh] rounded-t-md"
+                />
+                <div className="p-4">
+                  <div className="flex flex-row justify-start items-center gap-4">
+                  <div className="w-[20px] h-[20px]">
+                      <img src={Star} alt="" />
+                    </div>
+                    <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                  </div>
+                  <div className="flex flex-row justify-start items-center gap-4">
+                  <div className="w-[20px] h-[20px]">
+                      <img src={Star} alt="" />
+                    </div>
+                    <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                  </div>
+                  <div className="flex flex-row justify-start items-center gap-4">
+                  <div className="w-[20px] h-[20px]">
+                      <img src={Star} alt="" />
+                    </div>
+                    <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="w-[30vw] h-auto bg-white rounded-md card">
-              <img
-                src="https://www.radhajewellers.com/images/feature-pic-2.jpg"
-                alt=""
-                className="w-[40vw] h-[30vh] rounded-t-md"
-              />
-              <div className="p-4">
-                <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[1vw] h-[2vh] bg-black rounded-[50%]"></div>
-                  <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
-                </div>
-                <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[1vw] h-[2vh] bg-black rounded-[50%]"></div>
-                  <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
-                </div>
-                <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[1vw] h-[2vh] bg-black rounded-[50%]"></div>
-                  <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
-                </div>
-              </div>
-            </div>
+            </div> */}
           </div>
+
+          <div className=""></div>
         </div>
         <div className="w-full flex justify-center items-center flex-col">
-          <h2 className="text-[4vmin]">Shop By Category</h2>
+          <h2 className="text-[4vmin] py-8">Shop By <span className="text-[#468B93]">Category</span></h2>
           <div className="h-[50vh] bg-white">
             <div className="bg-[#F8F6F4] h-[50vh] w-[90vw] flex flex-row gap-4">
               <div className="flex flex-col basis-[40%] gap-4">
                 <div className="flex flex-row basis-[50%] gap-4 rounded-md">
                   <div className="grow_flex bg-red-50 rounded-md">
-                    <img src={Product1} alt="" className="rounded-md image_grid cursor-pointer" />
+                    <img
+                      src={Product1}
+                      alt=""
+                      className="rounded-md image_grid cursor-pointer"
+                    />
                   </div>
                   <div className="grow_flex bg-red-50 rounded-md">
-                    <img src={Product4} alt="" className="rounded-md image_grid cursor-pointer" />
+                    <img
+                      src={Product4}
+                      alt=""
+                      className="rounded-md image_grid cursor-pointer"
+                    />
                   </div>
                 </div>
                 <div className="basis-[50%] bg-blue-200 rounded-md overflow-hidden">
-                  <img src={Product2} alt="" className="rounded-md image_grid object-cover cursor-pointer" />
+                  <img
+                    src={Product2}
+                    alt=""
+                    className="rounded-md image_grid object-cover cursor-pointer"
+                  />
                 </div>
               </div>
               <div className="basis-[20%] bg-slate-400 rounded-md">
@@ -212,22 +223,50 @@ function Home() {
               </div>
               <div className="flex flex-col basis-[40%] gap-4">
                 <div className="basis-[50%] bg-blue-200 rounded-md overflow-hidden">
-                  <img src={Product5} alt="" className="object-cover image_grid cursor-pointer" />
+                  <img
+                    src={Product5}
+                    alt=""
+                    className="object-cover image_grid cursor-pointer"
+                  />
                 </div>
                 <div className="flex flex-row basis-[50%] gap-4">
                   <div className="grow_flex bg-red-50 rounded-md">
-                    <img src={Product6} alt="" className="rounded-md image_grid cursor-pointer" />
+                    <img
+                      src={Product6}
+                      alt=""
+                      className="rounded-md image_grid cursor-pointer"
+                    />
                   </div>
                   <div className="grow_flex bg-red-50 rounded-md">
-                    <img src={Product7} alt="" className="rounded-md image_grid cursor-pointer" />
+                    <img
+                      src={Product7}
+                      alt=""
+                      className="rounded-md image_grid cursor-pointer"
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center flex-col">
-          <h2 className="text-[4vmin]">Popular Products</h2>
+        <div className="w-full flex justify-center items-center flex-col h-[70vh]">
+          <h2 className="text-[4vmin] py-8">Popular <span className="text-[#468B93]">Products</span></h2>
+          <div className="h-auto bg-white w-[90vw] slick-product">
+            <Slider {...settings}>
+              <ProductCard img={Product1} />
+              <ProductCard img={Product2} />
+              <ProductCard img={Product3} />
+              <ProductCard img={Product4} />
+              <ProductCard img={Product5} />
+              <ProductCard img={Product6} />
+              <ProductCard img={Product7} />
+              <ProductCard img={Product1} />
+              <ProductCard img={Product1} />
+              <ProductCard img={Product1} />
+              <ProductCard img={Product1} />
+              <ProductCard img={Product1} />
+            </Slider>
+          </div>
         </div>
       </div>
       <Footer />

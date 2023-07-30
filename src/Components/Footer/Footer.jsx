@@ -10,8 +10,8 @@ import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
 
 function Footer() {
   return (
-    <div className="w-full h-[40vh] bg-[#F9F5F6] bottom-0 flex flex-col footer">
-      <div className="flex flex-row pr-[2vw] pl-[2vw] pt-[2vw] h-full justify-between w-[100vw]">
+    <div className="w-full h-[40vh] bg-[#ffffff] bottom-0 flex flex-col footer">
+      <div className="flex flex-row p-[2vw] h-full justify-between w-[100vw]">
         <div className="h-full">
           <h2 className="text-[3vmin] font-bold border-b-2 border-black">
             Products
@@ -77,18 +77,17 @@ function Footer() {
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
-        </div>
-      </div>
-      <div className="flex flex-row w-full justify-between items-center bg-[#FCF9F9] p-4">
-        <div className=""></div>
-        <div className="">
-          <p>© 2023 TVAN Jewellers Private Limited. All rights reserved.</p>
-        </div>
-        <div className="flex flex-row gap-4 justify-between">
+          <div className="flex flex-row gap-4 justify-between w-[80%]">
           <img src={instagram} alt="" className="w-[2vw] h-[4vh]" />
           <img src={facebook} alt="" className="w-[2vw] h-[4vh]" />
           <img src={twitter} alt="" className="w-[2vw] h-[4vh]" />
           <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
+        </div>
+        </div>
+      </div>
+      <div className="flex flex-row w-full justify-center items-center bg-[#cbeef2] text-black p-4">
+        <div className="">
+          <p>© 2023 TVAN Jewellers Private Limited. All rights reserved.</p>
         </div>
       </div>
     </div>

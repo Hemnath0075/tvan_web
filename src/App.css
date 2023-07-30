@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Noto Sans','PT Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .ant-modal{
@@ -47,9 +47,14 @@ input:focus{
   height: 100% !important;
   width: 100% !important;
 }
-/* .text {
-  white-space: nowrap; */
-  /* overflow: hidden; */
-  /* text-overflow: ellipsis; */
-/* } */
+
+.slick-product .slick-slide {
+  margin-right: 0 10px;
+}
+
+.slick-product .slick-slide > div{
+  margin-right: 10px;
+}
+
+
 

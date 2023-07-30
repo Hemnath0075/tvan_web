@@ -12,11 +12,16 @@ import { useForm } from "react-hook-form";
 import { UserOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import playStoreImage from "../../assets/images/google-play.png";
 import axios from "axios";
+import instagram from "../../assets/icons/instagram-1-svgrepo-com.svg";
+import facebook from "../../assets/icons/facebook-color-svgrepo-com.svg";
+import twitter from "../../assets/icons/twitter-color-svgrepo-com.svg";
+import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
+
 
 function Navbar() {
   const [userDiv, setUserDiv] = useState(false);
   const [isLoginModal, setIsLoginModal] = useState(false);
-  const [priceData,setPriceData]=useState(false);
+  const [priceData,setPriceData]=useState([{SRATE: 78, METALID: 'S'},{SRATE: 5000, METALID: 'G'}]);
   const {
     register,
     handleSubmit,
@@ -44,28 +49,28 @@ function Navbar() {
     vertical: true,
     verticalSwiping: true,
   };
-  useEffect(()=>{
-    const getTodaysPrice=async()=>{
-      const currentDate = new Date();
-      console.log(currentDate)
-      // Extract year, month, and day from the date
-      const year = currentDate.getFullYear();
-      const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
-      const day = String(currentDate.getDate()).padStart(2, '0');
-      console.log(day)
-      const formattedDate = `${year}-${month}-${day}`;
-      const data = await axios.get(`http://localhost:3200/getTodayPrice?date=${formattedDate}`)
-      setPriceData(data.data)
-    }
-    getTodaysPrice();
-  },[])
+  // useEffect(()=>{
+  //   const getTodaysPrice=async()=>{
+  //     const currentDate = new Date();
+  //     console.log(currentDate)
+  //     // Extract year, month, and day from the date
+  //     const year = currentDate.getFullYear();
+  //     const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
+  //     const day = String(currentDate.getDate()).padStart(2, '0');
+  //     console.log(day)
+  //     const formattedDate = `${year}-${month}-${day}`;
+  //     const data = await axios.get(`http://localhost:3200/getTodayPrice?date=${formattedDate}`)
+  //     setPriceData(data.data)
+  //   }
+  //   getTodaysPrice();
+  // },[])
   console.log(priceData)
   return (
     <>
-      <div className="w-full bg-[#F9F5F6] h-[10vh]  flex items-center justify-between">
+      <div className="w-full bg-white h-[10vh]  flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
           <img src={logo} alt="" className="h-[8vh]" />
-          <div className="w-[30vw] flex flex-row items-center ">
+          <div className="w-[25vw] flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
             <div className="">
               <p className="whitespace-nowrap">Live Rate:-</p>
             </div>
@@ -73,26 +78,32 @@ function Navbar() {
               <h3>
                 {" "}
                 Gold 22K 1 Gram –{" "}
-                <span className="text-red-400">₹ {priceData[1]?.SRATE}</span>
+                <span className="text-black">₹ {priceData[1]?.SRATE}</span>
               </h3>
               <h3>
                 Gold 22k 8 Gram –{" "}
-                <span className="text-red-400">₹ {priceData[1]?.SRATE * 8}</span>
+                <span className="text-black">₹ {priceData[1]?.SRATE * 8}</span>
               </h3>
               <h3>
-                Silver 1 Gram – <span className="text-red-400">₹ {priceData[0]?.SRATE}</span>
+                Silver 1 Gram – <span className="text-black">₹ {priceData[0]?.SRATE}</span>
               </h3>
             </Slider>
           </div>
         </div>
         <div className="flex justify-center items-center mr-[5%]">
-          <div className="">
+        <div className="flex flex-row gap-4 justify-between">
+          <img src={instagram} alt="" className="w-[2vw] h-[4vh]" />
+          <img src={facebook} alt="" className="w-[2vw] h-[4vh]" />
+          <img src={twitter} alt="" className="w-[2vw] h-[4vh]" />
+          <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
+        </div>
+          {/* <div className="">
             <img
               src={location}
               alt=""
               className="w-[4vw] h-[5vh] cursor-pointer"
             />
-          </div>
+          </div> */}
           <div className="">
             <img
               src={user}
@@ -141,15 +152,18 @@ function Navbar() {
             <img src={bag} alt="" className="w-[4vw] h-[5vh] cursor-pointer" />
           </div>
           <div className="">
+            <a href="https://play.google.com/store/apps/details?id=com.tvanjewellers" target="_blank" rel="noreferrer">
             <img
               src={playStoreImage}
               alt=""
               className="w-auto h-[5vh] cursor-pointer"
             />
+            </a>
+            
           </div>
         </div>
       </div>
-      <div className="w-full bg-[#F8E8EE] h-[6vh] flex items-center justify-evenly font-bold text-black">
+      <div className="w-full bg-[#509fa8] h-[6vh] flex items-center justify-evenly font-bold text-white">
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
           HOME
         </h3>
