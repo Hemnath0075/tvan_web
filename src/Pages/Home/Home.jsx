@@ -21,6 +21,8 @@ import Product7 from "../../assets/images/product11.png";
 import ProductCard from "../../Components/ProductCard";
 import SchemePlan from '../../assets/images/schemeBanner.png';
 import Star from '../../assets/images/star-svgrepo-com (1).svg'
+import Scheme1 from '../../assets/images/scheme1.png';
+import Scheme2 from '../../assets/images/scheme2.png';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -99,7 +101,7 @@ function Home() {
             <div className="flex flex-row px-[1%] w-full justify-evenly gap-4">
               <div className="w-[30vw] h-auto bg-white rounded-md card">
                 <img
-                  src="https://www.radhajewellers.com/images/feature-pic-2.jpg"
+                  src={Scheme1}
                   alt=""
                   className="w-[40vw] h-[30vh] rounded-t-md"
                 />
@@ -126,7 +128,7 @@ function Home() {
               </div>
               <div className="w-[30vw] h-auto bg-white rounded-md card">
                 <img
-                  src="https://www.radhajewellers.com/images/feature-pic-2.jpg"
+                  src={Scheme2}
                   alt=""
                   className="w-[40vw] h-[30vh] rounded-t-md"
                 />

@@ -163,8 +163,8 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="w-full bg-[#509fa8] h-[6vh] flex items-center justify-evenly font-bold text-white">
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
+      <div className="w-full bg-[#509fa8] h-[6vh] flex items-center justify-start font-bold text-white gap-[4vw] ">
+        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200 ml-[3vw]">
           HOME
         </h3>
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
