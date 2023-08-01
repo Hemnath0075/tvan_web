@@ -10,7 +10,7 @@ import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
 
 function Footer() {
   return (
-    <div className="w-full h-[40vh] bg-[#ffffff] bottom-0 flex flex-col footer">
+    <div className="w-full h-[40vh] bg-[#dcebed] bottom-0 flex flex-col footer">
       <div className="flex flex-row p-[2vw] h-full justify-between w-[100vw]">
         {/* <div className="h-full">
           <h2 className="text-[3vmin] font-bold border-b-2 border-black">
@@ -25,7 +25,7 @@ function Footer() {
           </div>
         </div> */}
         <div className="h-full">
-          <h2 className="text-[3vmin] font-bold  border-b-2 border-black">
+          <h2 className="text-[3vmin] font-bold  border-black text-center">
             Useful Links
           </h2>
           <div className="flex flex-col justify-around">
@@ -39,7 +39,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-col h-full font-bold">
-          <h2 className="text-[3vmin]  border-b-2 w-auto border-black font-bold">
+          <h2 className="text-[3vmin] w-auto border-black font-bold text-center">
             Contact
           </h2>
           <div className="flex flex-col justify-between flex-auto">
@@ -66,14 +66,14 @@ function Footer() {
           </div>
         </div>
         <div className="h-full mr-[5%]">
-          <h2 className="text-[3vmin] font-bold  border-b-2 border-black">
+          <h2 className="text-[3vmin] font-bold border-black text-center">
             Write to Us
           </h2>
           <div className="flex flex-col justify-around">
-              <input type="text" className="bg-white border-b-2 w-[150%] p-2" placeholder="Full Name"/>
-              <input type="text" className="bg-white border-b-2 w-[150%] p-2" placeholder="Mobile Number"/>
-              <input type="text" className="bg-white border-b-2 w-[150%] p-2" placeholder="Email"/>
-              <input type="text" className="bg-white border-b-2 w-[150%] p-2" placeholder="Feedback Message"/>
+              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[150%] p-2" placeholder="Full Name"/>
+              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[150%] p-2" placeholder="Mobile Number"/>
+              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[150%] p-2" placeholder="Email"/>
+              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[150%] p-2" placeholder="Feedback Message"/>
               <div className="flex w-[150%] justify-end">
               <input type="submit" value="Submit" className="bg-white border-2 border-red-500 w-[50%] px-2 py-1 mt-1" placeholder="Feedback Message"/>
               </div>

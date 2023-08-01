@@ -67,7 +67,7 @@ function Navbar() {
   console.log(priceData)
   return (
     <>
-      <div className="w-full bg-white h-[10vh]  flex items-center justify-between">
+      <div className="w-full bg-[#dcebed] h-[10vh]  flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
           <img src={logo} alt="" className="h-[8vh]" />
           <div className="w-[25vw] flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
