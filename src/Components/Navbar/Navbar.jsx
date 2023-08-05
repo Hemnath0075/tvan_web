@@ -67,10 +67,10 @@ function Navbar() {
   console.log(priceData)
   return (
     <>
-      <div className="w-full bg-[#dcebed] h-[10vh]  flex items-center justify-between">
+      <div className="w-full bg-[#ffffff] h-[10vh]  flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
           <img src={logo} alt="" className="h-[8vh]" />
-          <div className="w-[25vw] flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
+          <div className="w-[27vw] flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
             <div className="">
               <p className="whitespace-nowrap">Live Rate:-</p>
             </div>
@@ -78,14 +78,14 @@ function Navbar() {
               <h3>
                 {" "}
                 Gold 22K 1 Gram –{" "}
-                <span className="text-black">₹ {priceData[1]?.SRATE}</span>
+                <span className="text-black"><span className="rupee_text">₹</span> {priceData[1]?.SRATE}</span>
               </h3>
               <h3>
                 Gold 22k 8 Gram –{" "}
-                <span className="text-black">₹ {priceData[1]?.SRATE * 8}</span>
+                <span className="text-black"><span className="rupee_text">₹</span> {priceData[1]?.SRATE * 8}</span>
               </h3>
               <h3>
-                Silver 1 Gram – <span className="text-black">₹ {priceData[0]?.SRATE}</span>
+                Silver 1 Gram – <span className="text-black"><span className="rupee_text">₹</span> {priceData[0]?.SRATE}</span>
               </h3>
             </Slider>
           </div>

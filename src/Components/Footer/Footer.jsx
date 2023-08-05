@@ -100,7 +100,7 @@ function Footer() {
         </div> */}
         </div>
       </div>
-      <div className="flex flex-row w-full justify-center items-center bg-[#cbeef2] text-black p-4">
+      <div className="flex flex-row w-full justify-center items-center bg-[#cbeef2] text-black p-4 border-t-2 border-black">
         <div className="">
           <p>© 2023 TVAN Jewellers Private Limited. All rights reserved.</p>
         </div>
