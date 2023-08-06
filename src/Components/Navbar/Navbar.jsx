@@ -16,12 +16,23 @@ import instagram from "../../assets/icons/instagram-1-svgrepo-com.svg";
 import facebook from "../../assets/icons/facebook-color-svgrepo-com.svg";
 import twitter from "../../assets/icons/twitter-color-svgrepo-com.svg";
 import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
-
+import { Button, Drawer } from "antd";
+import MenuIcon from "../../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg";
 
 function Navbar() {
   const [userDiv, setUserDiv] = useState(false);
   const [isLoginModal, setIsLoginModal] = useState(false);
-  const [priceData,setPriceData]=useState([{SRATE: 78, METALID: 'S'},{SRATE: 5000, METALID: 'G'}]);
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
+  const [priceData, setPriceData] = useState([
+    { SRATE: 78, METALID: "S" },
+    { SRATE: 5000, METALID: "G" },
+  ]);
   const {
     register,
     handleSubmit,
@@ -64,10 +75,94 @@ function Navbar() {
   //   }
   //   getTodaysPrice();
   // },[])
-  console.log(priceData)
+  console.log(priceData);
   return (
     <>
-      <div className="w-full bg-[#ffffff] h-[10vh]  flex items-center justify-between">
+      <div className="w-full bg-white h-auto md:hidden flex flex-col items-center">
+        <div className="flex flex-row w-full basis-[50%] justify-between items-center">
+          <img src={MenuIcon} alt="" className="h-[5vh]" onClick={showDrawer}/>
+          <img src={logo} alt="" className="h-[8vh]" />
+          <img
+            src={user}
+            alt=""
+            className="w-[6vw] h-[5vh] cursor-pointer relative"
+            onClick={() => setUserDiv(true)}
+            // onMouseLeave={() => setUserDiv(false)}
+          />
+          {userDiv && (
+            <div
+              className="absolute w-[20vw] z-10 bg-white h-[30vh] right-[8%] top-[7%] rounded-md border-2 p-[1%] flex flex-col justify-evenly"
+              onMouseOver={() => setUserDiv(true)}
+              onMouseLeave={() => setUserDiv(false)}
+            >
+              <div className="">
+                <h3 className="font-bold">Your Account</h3>
+                <p>
+                  Track Your Orders, Manage Payment, Edit Profile And Much
+                  More..
+                </p>
+              </div>
+              <div className="flex w-full flex-col justify-center items-center gap-4">
+                <button
+                  className="p-[2%] bg-slate-200 border-2 flex-grow w-full rounded-md text-black font-bold"
+                  onClick={() => {
+                    showModal();
+                    setIsLoginModal(true);
+                  }}
+                >
+                  Login
+                </button>
+                <button
+                  className="p-[2%] bg-slate-200 border-2 flex-grow w-full rounded-md text-black font-bold"
+                  onClick={() => {
+                    showModal();
+                    setIsLoginModal(false);
+                  }}
+                >
+                  Signup
+                </button>
+              </div>
+            </div>
+          )}
+          <Drawer
+            title="Basic Drawer"
+            placement="left"
+            onClose={onClose}
+            open={open}
+          >
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Drawer>
+        </div>
+        <div className="w-full flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
+          <div className="">
+            <p className="whitespace-nowrap">Live Rate:-</p>
+          </div>
+          <Slider {...sliderSettings}>
+            <h3>
+              {" "}
+              Gold 22K 1 Gram –{" "}
+              <span className="text-black">
+                <span className="rupee_text">₹</span> {priceData[1]?.SRATE}
+              </span>
+            </h3>
+            <h3>
+              Gold 22k 8 Gram –{" "}
+              <span className="text-black">
+                <span className="rupee_text">₹</span> {priceData[1]?.SRATE * 8}
+              </span>
+            </h3>
+            <h3>
+              Silver 1 Gram –{" "}
+              <span className="text-black">
+                <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
+              </span>
+            </h3>
+          </Slider>
+        </div>
+      </div>
+      <div className="hidden w-full bg-white h-[10vh] md:flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
           <img src={logo} alt="" className="h-[8vh]" />
           <div className="w-[27vw] flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
@@ -78,24 +173,39 @@ function Navbar() {
               <h3>
                 {" "}
                 Gold 22K 1 Gram –{" "}
-                <span className="text-black"><span className="rupee_text">₹</span> {priceData[1]?.SRATE}</span>
+                <span className="text-black">
+                  <span className="rupee_text">₹</span> {priceData[1]?.SRATE}
+                </span>
               </h3>
               <h3>
                 Gold 22k 8 Gram –{" "}
-                <span className="text-black"><span className="rupee_text">₹</span> {priceData[1]?.SRATE * 8}</span>
+                <span className="text-black">
+                  <span className="rupee_text">₹</span>{" "}
+                  {priceData[1]?.SRATE * 8}
+                </span>
               </h3>
               <h3>
-                Silver 1 Gram – <span className="text-black"><span className="rupee_text">₹</span> {priceData[0]?.SRATE}</span>
+                Silver 1 Gram –{" "}
+                <span className="text-black">
+                  <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
+                </span>
               </h3>
             </Slider>
           </div>
         </div>
         <div className="flex justify-center items-center mr-[5%]">
-        <div className="flex flex-row gap-4 justify-between">
-          <a href="https://instagram.com/tvan.jewellers?igshid=MzRlODBiNWFlZA==" target="_blank"><img src={instagram} alt="" className="w-[2vw] h-[4vh]" /></a>
-          <a href="https://www.facebook.com/tvantiruchengode" target="_blank"><img src={facebook} alt="" className="w-[2vw] h-[4vh]" /></a>
-          <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
-        </div>
+          <div className="flex flex-row gap-4 justify-between">
+            <a
+              href="https://instagram.com/tvan.jewellers?igshid=MzRlODBiNWFlZA=="
+              target="_blank"
+            >
+              <img src={instagram} alt="" className="w-[2vw] h-[4vh]" />
+            </a>
+            <a href="https://www.facebook.com/tvantiruchengode" target="_blank">
+              <img src={facebook} alt="" className="w-[2vw] h-[4vh]" />
+            </a>
+            <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
+          </div>
           {/* <div className="">
             <img
               src={location}
@@ -151,18 +261,21 @@ function Navbar() {
             <img src={bag} alt="" className="w-[4vw] h-[5vh] cursor-pointer" />
           </div>
           <div className="">
-            <a href="https://play.google.com/store/apps/details?id=com.tvanjewellers" target="_blank" rel="noreferrer">
-            <img
-              src={playStoreImage}
-              alt=""
-              className="w-auto h-[5vh] cursor-pointer"
-            />
+            <a
+              href="https://play.google.com/store/apps/details?id=com.tvanjewellers"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={playStoreImage}
+                alt=""
+                className="w-auto h-[5vh] cursor-pointer"
+              />
             </a>
-            
           </div>
         </div>
       </div>
-      <div className="w-full bg-[#509fa8] h-[6vh] flex items-center justify-start font-bold text-white gap-[4vw] ">
+      <div className="hidden w-full bg-[#509fa8] h-[6vh] md:flex items-center justify-start font-bold text-white gap-[4vw] ">
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200 ml-[3vw]">
           HOME
         </h3>
