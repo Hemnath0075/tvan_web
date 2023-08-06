@@ -92,9 +92,8 @@ function Navbar() {
         </div>
         <div className="flex justify-center items-center mr-[5%]">
         <div className="flex flex-row gap-4 justify-between">
-          <img src={instagram} alt="" className="w-[2vw] h-[4vh]" />
-          <img src={facebook} alt="" className="w-[2vw] h-[4vh]" />
-          <img src={twitter} alt="" className="w-[2vw] h-[4vh]" />
+          <a href="https://instagram.com/tvan.jewellers?igshid=MzRlODBiNWFlZA==" target="_blank"><img src={instagram} alt="" className="w-[2vw] h-[4vh]" /></a>
+          <a href="https://www.facebook.com/tvantiruchengode" target="_blank"><img src={facebook} alt="" className="w-[2vw] h-[4vh]" /></a>
           <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
         </div>
           {/* <div className="">

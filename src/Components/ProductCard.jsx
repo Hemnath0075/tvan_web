@@ -2,7 +2,7 @@ import React from "react";
 
 function ProductCard(props) {
   return (
-      <div className="bg-white flex flex-col h-auto gap-4 justify-between react-slick-item  rounded-md card">
+      <div className="bg-white flex flex-col h-auto gap-4 justify-between  rounded-md card">
         <img src={props.img} alt="" className="rounded-md" />
         <div className="flex flex-col justify-center items-center">
           <h3>22 Kt Gold Zercon Mugappu</h3>

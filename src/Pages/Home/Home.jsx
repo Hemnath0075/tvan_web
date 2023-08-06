@@ -251,9 +251,9 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center flex-col h-[70vh]">
+        <div className="w-full flex justify-center items-center flex-col h-[auto]">
           <h2 className="text-[4vmin] py-8">Popular <span className="text-[#468B93]">Products</span></h2>
-          <div className="h-auto bg-white w-[90vw] slick-product">
+          <div className="h-auto bg-white w-[90vw] slick-product pb-8">
             <Slider {...settings}>
               <ProductCard img={Product1} />
               <ProductCard img={Product2} />

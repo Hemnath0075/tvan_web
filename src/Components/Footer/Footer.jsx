@@ -7,11 +7,12 @@ import instagram from "../../assets/icons/instagram-1-svgrepo-com.svg";
 import facebook from "../../assets/icons/facebook-color-svgrepo-com.svg";
 import twitter from "../../assets/icons/twitter-color-svgrepo-com.svg";
 import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
+import { NavLink } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className="w-full h-[40vh] bg-[#dcebed] bottom-0 flex flex-col footer">
-      <div className="flex flex-row p-[2vw] h-full justify-between w-[100vw]">
+    <div className="w-full h-auto bg-[#dcebed] bottom-0 flex flex-col footer">
+      <div className="flex flex-row p-[2vw] h-full justify-between w-full">
         {/* <div className="h-full">
           <h2 className="text-[3vmin] font-bold border-b-2 border-black">
             Products
@@ -29,16 +30,16 @@ function Footer() {
             Useful Links
           </h2>
           <div className="flex flex-col justify-around">
-            <a href="#">Home</a>
+            <NavLink to="/" onClick={() => window.scrollTo(0, 0)}>Home</NavLink>
             <a href="#">About Us</a>
             <a href="#">Direct Me</a>
-            <a href="#">Terms and Conditions</a>
-            <a href="#">Refund Policy</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Shipping Policy</a>
+            <NavLink to="/terms-and-condition" onClick={() => window.scrollTo(0, 0)}>Terms and Conditions</NavLink>
+            <NavLink to="/refund-policy" onClick={() => window.scrollTo(0, 0)}>Refund Policy</NavLink>
+            <NavLink to="/privacy-policy" onClick={() => window.scrollTo(0, 0)}>Privacy Policy</NavLink>
+            <NavLink to="/shipping-policy" onClick={() => window.scrollTo(0, 0)}>Shipping Policy</NavLink>
           </div>
         </div>
-        <div className="flex flex-col h-full font-bold">
+        <div className="flex flex-col h-full font-bold ">
           <h2 className="text-[3vmin] w-auto border-black font-bold text-center">
             Contact
           </h2>
@@ -65,22 +66,22 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="h-full mr-[5%]">
+        <div className="h-full mr-[5%] ">
           <h2 className="text-[3vmin] font-bold border-black text-center">
             Write to Us
           </h2>
           <div className="flex flex-col justify-around">
-              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[150%] p-2" placeholder="Full Name"/>
-              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[150%] p-2" placeholder="Mobile Number"/>
-              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[150%] p-2" placeholder="Email"/>
-              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[150%] p-2" placeholder="Feedback Message"/>
-              <div className="flex w-[150%] justify-end">
+              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[100%] p-2" placeholder="Full Name"/>
+              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[100%] p-2" placeholder="Mobile Number"/>
+              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[100%] p-2" placeholder="Email"/>
+              <input type="text" className="bg-[#dcebed] border-b-2 border-black w-[100%] p-2" placeholder="Feedback Message"/>
+              <div className="flex w-[100%] justify-end">
               <input type="submit" value="Submit" className="bg-white border-2 border-red-500 w-[50%] px-2 py-1 mt-1" placeholder="Feedback Message"/>
               </div>
               
           </div>
         </div>
-        <div className="h-full flex flex-col items-center gap-1">
+        <div className="h-full flex flex-col items-center gap-1 basis-[20%]">
           <iframe
             className="mb-1"
             title="id"
