@@ -17,11 +17,13 @@ import facebook from "../../assets/icons/facebook-color-svgrepo-com.svg";
 import twitter from "../../assets/icons/twitter-color-svgrepo-com.svg";
 import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
 
-
 function Navbar() {
   const [userDiv, setUserDiv] = useState(false);
   const [isLoginModal, setIsLoginModal] = useState(false);
-  const [priceData,setPriceData]=useState([{SRATE: 78, METALID: 'S'},{SRATE: 5000, METALID: 'G'}]);
+  const [priceData, setPriceData] = useState([
+    { SRATE: 78, METALID: "S" },
+    { SRATE: 5000, METALID: "G" },
+  ]);
   const {
     register,
     handleSubmit,
@@ -49,53 +51,72 @@ function Navbar() {
     vertical: true,
     verticalSwiping: true,
   };
-   useEffect(()=>{
-     const getTodaysPrice=async()=>{
+  useEffect(() => {
+    const getTodaysPrice = async () => {
       const currentDate = new Date();
-       console.log(currentDate)
-       // Extract year, month, and day from the date
-       const year = currentDate.getFullYear();
-       const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
-       const day = String(currentDate.getDate()).padStart(2, '0');
-       console.log(day)
-       const formattedDate = `${year}-${month}-${day}`;
-      const data = await axios.get(`http://192.168.2.20:8057/getTodayPrice?date=${formattedDate}`)
-      setPriceData(data.data)
-    }
-     getTodaysPrice();
-   },[])
-  console.log(priceData)
+      console.log(currentDate);
+      // Extract year, month, and day from the date
+      const year = currentDate.getFullYear();
+      const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Subtract 1 from the month and pad with '0' if needed
+      const day = String(currentDate.getDate()).padStart(2, "0");
+      console.log(day);
+      const formattedDate = `${year}-${month}-${day}`;
+      const data = await axios.get(
+        `http://192.168.2.20:8057/getTodayPrice?date=${formattedDate}`
+      );
+      setPriceData(data.data);
+    };
+    getTodaysPrice();
+  }, []);
+  console.log(priceData);
   return (
     <>
       <div className="w-full bg-[#ffffff] h-[10vh]  flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
           <img src={logo} alt="" className="h-[8vh]" />
-          <div className="w-[27vw] flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
+          <div className="w-[27vw] h-[9vh] flex flex-row gap-4 items-center bg-[#6ef480] text-black px-2 py-2 rounded-md text-sm">
             <div className="">
               <p className="whitespace-nowrap">Live Rate:-</p>
             </div>
-            <Slider {...sliderSettings}>
+            {/* <Slider {...sliderSettings}> */}
+            <div className="flex flex-col">
               <h3>
                 {" "}
                 Gold 22K 1 Gram –{" "}
-                <span className="text-black"><span className="rupee_text">₹</span> {priceData[1]?.SRATE}</span>
+                <span className="text-black">
+                  <span className="rupee_text">₹</span> {priceData[1]?.SRATE}
+                </span>
               </h3>
               <h3>
                 Gold 22k 8 Gram –{" "}
-                <span className="text-black"><span className="rupee_text">₹</span> {priceData[1]?.SRATE * 8}</span>
+                <span className="text-black">
+                  <span className="rupee_text">₹</span>{" "}
+                  {priceData[1]?.SRATE * 8}
+                </span>
               </h3>
               <h3>
-                Silver 1 Gram – <span className="text-black"><span className="rupee_text">₹</span> {priceData[0]?.SRATE}</span>
+                Silver 1 Gram –{" "}
+                <span className="text-black">
+                  <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
+                </span>
               </h3>
-            </Slider>
+            </div>
+            {/* </Slider> */}
           </div>
         </div>
         <div className="flex justify-center items-center mr-[5%]">
-        <div className="flex flex-row gap-4 justify-between">
-          <a href="https://instagram.com/tvan.jewellers?igshid=MzRlODBiNWFlZA==" target="_blank"><img src={instagram} alt="" className="w-[2vw] h-[4vh]" /></a>
-          <a href="https://www.facebook.com/tvantiruchengode" target="_blank"><img src={facebook} alt="" className="w-[2vw] h-[4vh]" /></a>
-          <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
-        </div>
+          <div className="flex flex-row gap-4 justify-between">
+            <a
+              href="https://instagram.com/tvan.jewellers?igshid=MzRlODBiNWFlZA=="
+              target="_blank"
+            >
+              <img src={instagram} alt="" className="w-[2vw] h-[4vh]" />
+            </a>
+            <a href="https://www.facebook.com/tvantiruchengode" target="_blank">
+              <img src={facebook} alt="" className="w-[2vw] h-[4vh]" />
+            </a>
+            <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
+          </div>
           {/* <div className="">
             <img
               src={location}
@@ -151,18 +172,21 @@ function Navbar() {
             <img src={bag} alt="" className="w-[4vw] h-[5vh] cursor-pointer" />
           </div>
           <div className="">
-            <a href="https://play.google.com/store/apps/details?id=com.tvanjewellers" target="_blank" rel="noreferrer">
-            <img
-              src={playStoreImage}
-              alt=""
-              className="w-auto h-[5vh] cursor-pointer"
-            />
+            <a
+              href="https://play.google.com/store/apps/details?id=com.tvanjewellers"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={playStoreImage}
+                alt=""
+                className="w-auto h-[5vh] cursor-pointer"
+              />
             </a>
-            
           </div>
         </div>
       </div>
-      <div className="w-full bg-[#509fa8] h-[6vh] flex items-center justify-start font-bold text-white gap-[4vw] ">
+      <div className="w-full bg-[#bcffc5] h-[6vh] flex items-center justify-start text-black gap-[4vw] ">
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200 ml-[3vw]">
           HOME
         </h3>
