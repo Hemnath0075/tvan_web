@@ -49,21 +49,21 @@ function Navbar() {
     vertical: true,
     verticalSwiping: true,
   };
-  // useEffect(()=>{
-  //   const getTodaysPrice=async()=>{
-  //     const currentDate = new Date();
-  //     console.log(currentDate)
-  //     // Extract year, month, and day from the date
-  //     const year = currentDate.getFullYear();
-  //     const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
-  //     const day = String(currentDate.getDate()).padStart(2, '0');
-  //     console.log(day)
-  //     const formattedDate = `${year}-${month}-${day}`;
-  //     const data = await axios.get(`http://localhost:3200/getTodayPrice?date=${formattedDate}`)
-  //     setPriceData(data.data)
-  //   }
-  //   getTodaysPrice();
-  // },[])
+   useEffect(()=>{
+     const getTodaysPrice=async()=>{
+      const currentDate = new Date();
+       console.log(currentDate)
+       // Extract year, month, and day from the date
+       const year = currentDate.getFullYear();
+       const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
+       const day = String(currentDate.getDate()).padStart(2, '0');
+       console.log(day)
+       const formattedDate = `${year}-${month}-${day}`;
+      const data = await axios.get(`http://localhost:3200/getTodayPrice?date=${formattedDate}`)
+      setPriceData(data.data)
+    }
+     getTodaysPrice();
+   },[])
   console.log(priceData)
   return (
     <>
