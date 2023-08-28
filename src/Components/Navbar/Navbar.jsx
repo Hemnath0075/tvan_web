@@ -16,8 +16,10 @@ import instagram from "../../assets/icons/instagram-1-svgrepo-com.svg";
 import facebook from "../../assets/icons/facebook-color-svgrepo-com.svg";
 import twitter from "../../assets/icons/twitter-color-svgrepo-com.svg";
 import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
+
 import { Button, Drawer } from "antd";
 import MenuIcon from "../../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg";
+
 
 function Navbar() {
   const [userDiv, setUserDiv] = useState(false);
@@ -29,6 +31,7 @@ function Navbar() {
   const onClose = () => {
     setOpen(false);
   };
+
   const [priceData, setPriceData] = useState([
     { SRATE: 78, METALID: "S" },
     { SRATE: 5000, METALID: "G" },
@@ -60,6 +63,7 @@ function Navbar() {
     vertical: true,
     verticalSwiping: true,
   };
+
   // useEffect(()=>{
   //   const getTodaysPrice=async()=>{
   //     const currentDate = new Date();
@@ -75,7 +79,8 @@ function Navbar() {
   //   }
   //   getTodaysPrice();
   // },[])
-  console.log(priceData);
+
+//   console.log(priceData);
   return (
     <>
       <div className="w-full bg-white h-auto md:hidden flex flex-col items-center">
@@ -165,11 +170,12 @@ function Navbar() {
       <div className="hidden w-full bg-white h-[10vh] md:flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
           <img src={logo} alt="" className="h-[8vh]" />
-          <div className="w-[27vw] flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
+          <div className="w-[27vw] h-[9vh] flex flex-row gap-4 items-center bg-[#6ef480] text-black px-2 py-2 rounded-md text-sm">
             <div className="">
               <p className="whitespace-nowrap">Live Rate:-</p>
             </div>
-            <Slider {...sliderSettings}>
+            {/* <Slider {...sliderSettings}> */}
+            <div className="flex flex-col">
               <h3>
                 {" "}
                 Gold 22K 1 Gram –{" "}
@@ -190,7 +196,8 @@ function Navbar() {
                   <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
                 </span>
               </h3>
-            </Slider>
+            </div>
+            {/* </Slider> */}
           </div>
         </div>
         <div className="flex justify-center items-center mr-[5%]">
@@ -276,6 +283,7 @@ function Navbar() {
         </div>
       </div>
       <div className="hidden w-full bg-[#509fa8] h-[6vh] md:flex items-center justify-start font-bold text-white gap-[4vw] ">
+
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200 ml-[3vw]">
           HOME
         </h3>
