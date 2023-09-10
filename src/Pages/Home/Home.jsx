@@ -83,6 +83,31 @@ function Home() {
     slidesToScroll: 4,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
   return (
     <div className="min-h-screen w-full bg-white">
@@ -90,20 +115,20 @@ function Home() {
       <div className="">
         <div className="">
           <Slider {...sliderSettings}>
-            <img src={Banner1} alt="" />
-            <img src={Banner2} alt="" />
-            <img src={Banner3} alt="" />
+            <img src={Banner1} alt="" className="h-[30vh] md:h-auto"/>
+            <img src={Banner2} alt="" className="h-[30vh] md:h-auto"/>
+            <img src={Banner3} alt="" className="h-[30vh] md:h-auto"/>
           </Slider>
         </div>
         <div className="w-full flex justify-center items-center flex-col px-[3vw]">
           <h2 className="text-[4vmin] py-8">Gold <span className="text-[#468B93]">Savings Scheme</span></h2>
           <div className="flex flex-row px-[1%] w-full justify-between">
-            <div className="flex flex-row px-[1%] w-full justify-evenly gap-4">
-              <div className="w-[30vw] h-auto bg-white rounded-md card">
+            <div className="flex flex-col md:flex-row px-[1%] w-full justify-evenly gap-4">
+              <div className="w-full md:w-[30vw] h-auto bg-white rounded-md card">
                 <img
                   src={Scheme1}
                   alt=""
-                  className="w-[40vw] h-[30vh] rounded-t-md"
+                  className="w-full md:w-[40vw] h-[30vh] rounded-t-md"
                 />
                 <div className="p-4">
                   <div className="flex flex-row justify-start items-center gap-4">
@@ -126,11 +151,11 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[30vw] h-auto bg-white rounded-md card">
+              <div className="w-full md:w-[30vw] h-auto bg-white rounded-md card">
                 <img
                   src={Scheme2}
                   alt=""
-                  className="w-[40vw] h-[30vh] rounded-t-md"
+                  className="w-full md:w-[40vw] h-[30vh] rounded-t-md"
                 />
                 <div className="p-4">
                   <div className="flex flex-row justify-start items-center gap-4">
@@ -189,8 +214,8 @@ function Home() {
         </div>
         <div className="w-full flex justify-center items-center flex-col">
           <h2 className="text-[4vmin] py-8">Shop By <span className="text-[#468B93]">Category</span></h2>
-          <div className="h-[50vh] bg-white">
-            <div className="bg-[#F8F6F4] h-[50vh] w-[90vw] flex flex-row gap-4">
+          <div className="h-auto md:h-[50vh] bg-white">
+            <div className="bg-[#F8F6F4] h-auto md:h-full w-[90vw] flex flex-col md:flex-row gap-4">
               <div className="flex flex-col basis-[40%] gap-4">
                 <div className="flex flex-row basis-[50%] gap-4 rounded-md">
                   <div className="grow_flex bg-red-50 rounded-md">
