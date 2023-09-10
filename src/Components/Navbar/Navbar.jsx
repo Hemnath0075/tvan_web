@@ -232,9 +232,8 @@ function Navbar() {
                     type="text"
                     {...register("username", { required: true })}
                     placeholder="Username"
-                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${
-                      errors.username ? "border-red-600" : "border-blue-200"
-                    }`}
+                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${errors.username ? "border-red-600" : "border-blue-200"
+                      }`}
                   />
                   {errors.username && (
                     <span className="w-full flex justify-start text-[2vmin] text-red-500">
@@ -244,9 +243,8 @@ function Navbar() {
                   <input
                     type="email"
                     {...register("email", { required: true })}
-                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${
-                      errors.email ? "border-red-600" : "border-blue-200"
-                    }`}
+                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${errors.email ? "border-red-600" : "border-blue-200"
+                      }`}
                     placeholder="Email"
                   />
                   {errors.username && (
@@ -257,9 +255,8 @@ function Navbar() {
                   <input
                     type="tel"
                     {...register("mobile", { required: true })}
-                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${
-                      errors.mobile ? "border-red-600" : "border-blue-200"
-                    }`}
+                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${errors.mobile ? "border-red-600" : "border-blue-200"
+                      }`}
                     placeholder="Mobile Number"
                   />
                   {errors.username && (
@@ -270,9 +267,8 @@ function Navbar() {
                   <input
                     type="password"
                     {...register("password", { required: true })}
-                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${
-                      errors.password ? "border-red-600" : "border-blue-200"
-                    }`}
+                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${errors.password ? "border-red-600" : "border-blue-200"
+                      }`}
                     placeholder="Password"
                   />
 
@@ -306,9 +302,8 @@ function Navbar() {
                   <input
                     type="email"
                     {...register("email", { required: true })}
-                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${
-                      errors.email ? "border-red-600" : "border-blue-200"
-                    }`}
+                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${errors.email ? "border-red-600" : "border-blue-200"
+                      }`}
                     placeholder="Email"
                   />
                   {errors.username && (
@@ -319,9 +314,8 @@ function Navbar() {
                   <input
                     type="password"
                     {...register("password", { required: true })}
-                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${
-                      errors.password ? "border-red-600" : "border-blue-200"
-                    }`}
+                    className={`px-[4%] py-[3%] w-full border-2 rounded-md ${errors.password ? "border-red-600" : "border-blue-200"
+                      }`}
                     placeholder="Password"
                   />
 
