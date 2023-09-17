@@ -76,7 +76,7 @@ function Navbar() {
       const day = String(currentDate.getDate()).padStart(2, '0');
       console.log(day)
       const formattedDate = `${year}-${month}-${day}`;
-      const data = await axios.get(`http://192.168.2.20:8057/getTodayPrice?date=${formattedDate}`)
+      const data = await axios.get(`http://65.1.2.188:8057/getTodayPrice?date=${formattedDate}`)
       setPriceData(data.data)
     }
     getTodaysPrice();
