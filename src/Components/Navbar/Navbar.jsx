@@ -19,9 +19,11 @@ import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
 
 import { Button, Drawer } from "antd";
 import MenuIcon from "../../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg";
+import { useNavigate } from "react-router-dom";
 
 
 function Navbar() {
+  const navigate = useNavigate();
   const [userDiv, setUserDiv] = useState(false);
   const [isLoginModal, setIsLoginModal] = useState(false);
   const [open, setOpen] = useState(false);
@@ -64,21 +66,21 @@ function Navbar() {
     verticalSwiping: true,
   };
 
-  // useEffect(()=>{
-  //   const getTodaysPrice=async()=>{
-  //     const currentDate = new Date();
-  //     console.log(currentDate)
-  //     // Extract year, month, and day from the date
-  //     const year = currentDate.getFullYear();
-  //     const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
-  //     const day = String(currentDate.getDate()).padStart(2, '0');
-  //     console.log(day)
-  //     const formattedDate = `${year}-${month}-${day}`;
-  //     const data = await axios.get(`http://localhost:3200/getTodayPrice?date=${formattedDate}`)
-  //     setPriceData(data.data)
-  //   }
-  //   getTodaysPrice();
-  // },[])
+  useEffect(()=>{
+    const getTodaysPrice=async()=>{
+      const currentDate = new Date();
+      console.log(currentDate)
+      // Extract year, month, and day from the date
+      const year = currentDate.getFullYear();
+      const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
+      const day = String(currentDate.getDate()).padStart(2, '0');
+      console.log(day)
+      const formattedDate = `${year}-${month}-${day}`;
+      const data = await axios.get(`http://192.168.2.20:8057/getTodayPrice?date=${formattedDate}`)
+      setPriceData(data.data)
+    }
+    getTodaysPrice();
+  },[])
 
 //   console.log(priceData);
   return (
@@ -282,9 +284,9 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="hidden w-full bg-[#509fa8] h-[6vh] md:flex items-center justify-start font-bold text-white gap-[4vw] ">
+      <div className="hidden w-full bg-[#bcffc5] text-black h-[6vh] md:flex items-center justify-start font-bold gap-[4vw] ">
 
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200 ml-[3vw]">
+        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200 ml-[3vw]" onClick={()=>navigate('/')}>
           HOME
         </h3>
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
