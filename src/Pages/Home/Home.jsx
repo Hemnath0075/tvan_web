@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Slider from "react-slick";
 import Banner1 from "../../assets/images/banner1.png";
@@ -19,10 +19,10 @@ import Product5 from "../../assets/images/product6.png";
 import Product6 from "../../assets/images/product10.png";
 import Product7 from "../../assets/images/product11.png";
 import ProductCard from "../../Components/ProductCard";
-import SchemePlan from '../../assets/images/schemeBanner.png';
-import Star from '../../assets/images/star-svgrepo-com (1).svg'
-import Scheme1 from '../../assets/images/scheme1.png';
-import Scheme2 from '../../assets/images/scheme2.png';
+import SchemePlan from "../../assets/images/schemeBanner.png";
+import Star from "../../assets/images/star-svgrepo-com (1).svg";
+import Scheme1 from "../../assets/images/scheme1.png";
+import Scheme2 from "../../assets/images/scheme2.png";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -63,6 +63,32 @@ function SamplePrevArrow(props) {
 }
 
 function Home() {
+  const productRef = useRef();
+  const categoryRef = useRef();
+  const schemeRef = useRef();
+  const contactusRef = useRef();
+
+  const navigateSections = (sections) => {
+    switch (sections) {
+      case "products":
+        if (productRef.current)
+          productRef.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      case "category":
+        if (categoryRef.current)
+          categoryRef.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      case "schemes":
+        if (schemeRef.current)
+          schemeRef.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      case "contactus":
+        if (contactusRef.current)
+          contactusRef.current.scrollIntoView({ behavior: "smooth" });
+        break;
+    }
+  };
+
   const sliderSettings = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -90,38 +116,43 @@ function Home() {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-        }
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="min-h-screen w-full bg-white">
-      <Navbar />
+      <Navbar navigateSections={navigateSections} />
       <div className="">
         <div className="">
           <Slider {...sliderSettings}>
-            <img src={Banner1} alt="" className="h-[30vh] md:h-auto"/>
-            <img src={Banner2} alt="" className="h-[30vh] md:h-auto"/>
-            <img src={Banner3} alt="" className="h-[30vh] md:h-auto"/>
+            <img src={Banner1} alt="" className="h-[30vh] md:h-auto" />
+            <img src={Banner2} alt="" className="h-[30vh] md:h-auto" />
+            <img src={Banner3} alt="" className="h-[30vh] md:h-auto" />
           </Slider>
         </div>
-        <div className="w-full flex justify-center items-center flex-col px-[3vw]">
-          <h2 className="text-[4vmin] py-8">Gold <span className="text-[#468B93]">Savings Scheme</span></h2>
+        <div
+          className="w-full flex justify-center items-center flex-col px-[3vw]"
+          ref={schemeRef}
+        >
+          <h2 className="text-[4vmin] py-8">
+            Gold <span className="text-[#468B93]">Savings Scheme</span>
+          </h2>
           <div className="flex flex-row px-[1%] w-full justify-between">
             <div className="flex flex-col md:flex-row px-[1%] w-full justify-evenly gap-4">
               <div className="w-full md:w-[30vw] h-auto bg-white rounded-md card">
@@ -130,7 +161,7 @@ function Home() {
                   alt=""
                   className="w-full md:w-[40vw] h-[30vh] rounded-t-md"
                 />
-                <div className="p-4">
+                {/* <div className="p-4">
                   <div className="flex flex-row justify-start items-center gap-4">
                     <div className="w-[20px] h-[20px]">
                       <img src={Star} alt="" />
@@ -138,18 +169,18 @@ function Home() {
                     <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
                   </div>
                   <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[20px] h-[20px]">
+                    <div className="w-[20px] h-[20px]">
                       <img src={Star} alt="" />
                     </div>
                     <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
                   </div>
                   <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[20px] h-[20px]">
+                    <div className="w-[20px] h-[20px]">
                       <img src={Star} alt="" />
                     </div>
                     <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="w-full md:w-[30vw] h-auto bg-white rounded-md card">
                 <img
@@ -157,26 +188,26 @@ function Home() {
                   alt=""
                   className="w-full md:w-[40vw] h-[30vh] rounded-t-md"
                 />
-                <div className="p-4">
+                {/* <div className="p-4">
                   <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[20px] h-[20px]">
+                    <div className="w-[20px] h-[20px]">
                       <img src={Star} alt="" />
                     </div>
                     <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
                   </div>
                   <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[20px] h-[20px]">
+                    <div className="w-[20px] h-[20px]">
                       <img src={Star} alt="" />
                     </div>
                     <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
                   </div>
                   <div className="flex flex-row justify-start items-center gap-4">
-                  <div className="w-[20px] h-[20px]">
+                    <div className="w-[20px] h-[20px]">
                       <img src={Star} alt="" />
                     </div>
                     <p>Monthly Amount:- ₹ 100,₹ 1000,₹ 10000,₹ 100000,</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             {/* <div className="">
@@ -212,8 +243,13 @@ function Home() {
 
           <div className=""></div>
         </div>
-        <div className="w-full flex justify-center items-center flex-col">
-          <h2 className="text-[4vmin] py-8">Shop By <span className="text-[#468B93]">Category</span></h2>
+        <div
+          className="w-full flex justify-center items-center flex-col"
+          ref={categoryRef}
+        >
+          <h2 className="text-[4vmin] py-8">
+            Shop By <span className="text-[#468B93]">Category</span>
+          </h2>
           <div className="h-auto md:h-[50vh] bg-white">
             <div className="bg-[#F8F6F4] h-auto md:h-full w-[90vw] flex flex-col md:flex-row gap-4">
               <div className="flex flex-col basis-[40%] gap-4">
@@ -276,8 +312,13 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center flex-col h-[auto]">
-          <h2 className="text-[4vmin] py-8">Popular <span className="text-[#468B93]">Products</span></h2>
+        <div
+          className="w-full flex justify-center items-center flex-col h-[auto]"
+          ref={productRef}
+        >
+          <h2 className="text-[4vmin] py-8">
+            Popular <span className="text-[#468B93]">Products</span>
+          </h2>
           <div className="h-auto bg-white w-[90vw] slick-product pb-8">
             <Slider {...settings}>
               <ProductCard img={Product1} />
@@ -296,7 +337,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer ref={contactusRef} />
     </div>
   );
 }

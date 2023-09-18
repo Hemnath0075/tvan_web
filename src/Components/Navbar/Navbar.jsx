@@ -22,7 +22,7 @@ import MenuIcon from "../../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg";
 import { useNavigate } from "react-router-dom";
 
 
-function Navbar() {
+function Navbar({navigateSections}) {
   const navigate = useNavigate();
   const [userDiv, setUserDiv] = useState(false);
   const [isLoginModal, setIsLoginModal] = useState(false);
@@ -77,6 +77,10 @@ function Navbar() {
       console.log(day)
       const formattedDate = `${year}-${month}-${day}`;
       const data = await axios.get(`http://65.1.2.188:8057/getTodayPrice?date=${formattedDate}`)
+      const data2 = await axios.post(`http://65.1.2.188:8057/api`,{
+        "date":"2023-09-14"
+      })
+      console.log("this is from the api",data2)
       setPriceData(data.data)
     }
     getTodaysPrice();
@@ -132,14 +136,14 @@ function Navbar() {
             </div>
           )}
           <Drawer
-            title="Basic Drawer"
+            title="TVAN JEWELLERS"
             placement="left"
             onClose={onClose}
             open={open}
           >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+            <p>Home</p>
+            <p></p>
+            <p></p>
           </Drawer>
         </div>
         <div className="w-full flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
@@ -151,19 +155,19 @@ function Navbar() {
               {" "}
               Gold 22K 1 Gram –{" "}
               <span className="text-black">
-                <span className="rupee_text">₹</span> {priceData[1]?.SRATE}
+                <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
               </span>
             </h3>
             <h3>
               Gold 22k 8 Gram –{" "}
               <span className="text-black">
-                <span className="rupee_text">₹</span> {priceData[1]?.SRATE * 8}
+                <span className="rupee_text">₹</span> {priceData[0]?.SRATE * 8}
               </span>
             </h3>
             <h3>
               Silver 1 Gram –{" "}
               <span className="text-black">
-                <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
+                <span className="rupee_text">₹</span> {priceData[1]?.SRATE}
               </span>
             </h3>
           </Slider>
@@ -182,20 +186,20 @@ function Navbar() {
                 {" "}
                 Gold 22K 1 Gram –{" "}
                 <span className="text-black">
-                  <span className="rupee_text">₹</span> {priceData[1]?.SRATE}
+                  <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
                 </span>
               </h3>
               <h3>
                 Gold 22k 8 Gram –{" "}
                 <span className="text-black">
                   <span className="rupee_text">₹</span>{" "}
-                  {priceData[1]?.SRATE * 8}
+                  {priceData[0]?.SRATE * 8}
                 </span>
               </h3>
               <h3>
                 Silver 1 Gram –{" "}
                 <span className="text-black">
-                  <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
+                  <span className="rupee_text">₹</span> {priceData[1]?.SRATE}
                 </span>
               </h3>
             </div>
@@ -289,16 +293,16 @@ function Navbar() {
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200 ml-[3vw]" onClick={()=>navigate('/')}>
           HOME
         </h3>
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
-          TVAN
+        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('category')}>
+          CATEGORY
         </h3>
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
+        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('products')}>
           PRODUCTS
         </h3>
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
+        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('schemes')}>
           GOLD SCHEME
         </h3>
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200">
+        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('contactus')}>
           CONTACT US
         </h3>
       </div>
