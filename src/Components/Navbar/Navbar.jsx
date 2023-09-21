@@ -35,8 +35,8 @@ function Navbar({navigateSections}) {
   };
 
   const [priceData, setPriceData] = useState([
-    { SRATE: 78, METALID: "S" },
-    { SRATE: 5000, METALID: "G" },
+    {"SRate":78,
+    "GRate":5000,}
   ]);
   const {
     register,
@@ -76,15 +76,16 @@ function Navbar({navigateSections}) {
       const day = String(currentDate.getDate()).padStart(2, '0');
       console.log(day)
       const formattedDate = `${year}-${month}-${day}`;
-      const data = await axios.get(`http://65.1.2.188:8057/getTodayPrice?date=${formattedDate}`)
-      const data2 = await axios.post(`http://65.1.2.188:8057/api`,{
-        "date":"2023-09-14"
+      // const data = await axios.get(`http://65.1.2.188:8057/getTodayPrice?date=${formattedDate}`)
+      const data = await axios.post(`http://65.1.2.188:8057/api`,{
+        "date":formattedDate
       })
-      console.log("this is from the api",data2)
+      console.log("this is from the api",data)
       setPriceData(data.data)
     }
     getTodaysPrice();
   },[])
+  console.log(priceData)
 
 //   console.log(priceData);
   return (
@@ -155,19 +156,19 @@ function Navbar({navigateSections}) {
               {" "}
               Gold 22K 1 Gram –{" "}
               <span className="text-black">
-                <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
+                <span className="rupee_text">₹</span> {priceData[0]?.SRate}
               </span>
             </h3>
             <h3>
               Gold 22k 8 Gram –{" "}
               <span className="text-black">
-                <span className="rupee_text">₹</span> {priceData[0]?.SRATE * 8}
+                <span className="rupee_text">₹</span> {priceData[0]?.GRate * 8}
               </span>
             </h3>
             <h3>
               Silver 1 Gram –{" "}
               <span className="text-black">
-                <span className="rupee_text">₹</span> {priceData[1]?.SRATE}
+                <span className="rupee_text">₹</span> {priceData[0]?.SRate}
               </span>
             </h3>
           </Slider>
@@ -186,20 +187,20 @@ function Navbar({navigateSections}) {
                 {" "}
                 Gold 22K 1 Gram –{" "}
                 <span className="text-black">
-                  <span className="rupee_text">₹</span> {priceData[0]?.SRATE}
+                  <span className="rupee_text">₹</span> {priceData[0]?.GRate}
                 </span>
               </h3>
               <h3>
                 Gold 22k 8 Gram –{" "}
                 <span className="text-black">
                   <span className="rupee_text">₹</span>{" "}
-                  {priceData[0]?.SRATE * 8}
+                  {priceData[0]?.GRate * 8}
                 </span>
               </h3>
               <h3>
                 Silver 1 Gram –{" "}
                 <span className="text-black">
-                  <span className="rupee_text">₹</span> {priceData[1]?.SRATE}
+                  <span className="rupee_text">₹</span> {priceData[0]?.SRate}
                 </span>
               </h3>
             </div>
