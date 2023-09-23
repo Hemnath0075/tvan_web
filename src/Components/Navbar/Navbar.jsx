@@ -35,8 +35,8 @@ function Navbar({navigateSections}) {
   };
 
   const [priceData, setPriceData] = useState([
-    {"SRate":78,
-    "GRate":5000,}
+    {"SRate":0,
+    "GRate":0,}
   ]);
   const {
     register,
@@ -77,7 +77,7 @@ function Navbar({navigateSections}) {
       console.log(day)
       const formattedDate = `${year}-${month}-${day}`;
       // const data = await axios.get(`http://65.1.2.188:8057/getTodayPrice?date=${formattedDate}`)
-      const data = await axios.post(`http://65.1.2.188:8057/api`,{
+      const data = await axios.post(`http://vedhatech-001-site6.gtempurl.com/api`,{
         "date":formattedDate
       })
       console.log("this is from the api",data)
