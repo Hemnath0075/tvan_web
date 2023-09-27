@@ -77,7 +77,7 @@ function Navbar({navigateSections}) {
       console.log(day)
       const formattedDate = `${year}-${month}-${day}`;
       // const data = await axios.get(`http://65.1.2.188:8057/getTodayPrice?date=${formattedDate}`)
-      const data = await axios.post(`http://vedhatech-001-site6.gtempurl.com/api`,{
+      const data = await axios.post(`https://savingsapi.vedhatechnology.com/api/GetTodaysRate`,{
         "date":formattedDate
       })
       console.log("this is from the api",data)
@@ -147,7 +147,21 @@ function Navbar({navigateSections}) {
             <p></p>
           </Drawer>
         </div>
-        <div className="w-full flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
+        {/* <div className="w-full flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
+        <div className="flex flex-row gap-4 justify-between w-full">
+            <a
+              href="https://instagram.com/tvan.jewellers?igshid=MzRlODBiNWFlZA=="
+              target="_blank"
+            >
+              <img src={instagram} alt="" className="w-[4vw] h-[4vh]" />
+            </a>
+            <a href="https://www.facebook.com/tvantiruchengode" target="_blank">
+              <img src={facebook} alt="" className="w-[2vw] h-[4vh]" />
+            </a>
+            <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
+          </div>
+        </div> */}
+        <div className="w-full flex flex-row items-center bg-[#6ef480] text-black px-2 py-2 rounded-md">
           <div className="">
             <p className="whitespace-nowrap">Live Rate:-</p>
           </div>
@@ -156,13 +170,13 @@ function Navbar({navigateSections}) {
               {" "}
               Gold 22K 1 Gram –{" "}
               <span className="text-black">
-                <span className="rupee_text">₹</span> {priceData[0]?.SRate}
+                <span className="rupee_text">₹</span> {parseInt(priceData[0]?.GRate).toFixed(0)}
               </span>
             </h3>
             <h3>
               Gold 22k 8 Gram –{" "}
               <span className="text-black">
-                <span className="rupee_text">₹</span> {priceData[0]?.GRate * 8}
+                <span className="rupee_text">₹</span> {parseInt(priceData[0]?.GRate * 8).toFixed(0)}
               </span>
             </h3>
             <h3>
@@ -187,14 +201,14 @@ function Navbar({navigateSections}) {
                 {" "}
                 Gold 22K 1 Gram –{" "}
                 <span className="text-black">
-                  <span className="rupee_text">₹</span> {priceData[0]?.GRate}
+                  <span className="rupee_text">₹</span> {parseInt(priceData[0]?.GRate).toFixed(0)}
                 </span>
               </h3>
               <h3>
                 Gold 22k 8 Gram –{" "}
                 <span className="text-black">
                   <span className="rupee_text">₹</span>{" "}
-                  {priceData[0]?.GRate * 8}
+                  {parseInt(priceData[0]?.GRate * 8).toFixed(0)}
                 </span>
               </h3>
               <h3>

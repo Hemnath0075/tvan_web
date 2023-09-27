@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Slider from "react-slick";
 import Banner1 from "../../assets/images/banner1.png";
@@ -63,6 +63,7 @@ function SamplePrevArrow(props) {
 }
 
 function Home() {
+  const [bannerImages,setBannerImages] = useState();
   const productRef = useRef();
   const categoryRef = useRef();
   const schemeRef = useRef();
@@ -135,15 +136,30 @@ function Home() {
       },
     ],
   };
+  
+  // useEffect(() => {
+  //   const getImages =async () => {
+  //     const getBanner = await axios.get('http://localhost:8057/admin/images/banner')
+  //     console.log(getBanner.data);
+  //     setBannerImages(getBanner.data);
+  //   };
+  //   getImages();
+  // }, []);
   return (
     <div className="min-h-screen w-full bg-white">
       <Navbar navigateSections={navigateSections} />
       <div className="">
         <div className="">
           <Slider {...sliderSettings}>
-            <img src={Banner1} alt="" className="h-[30vh] md:h-auto" />
-            <img src={Banner2} alt="" className="h-[30vh] md:h-auto" />
-            <img src={Banner3} alt="" className="h-[30vh] md:h-auto" />
+            {/* {bannerImages?.map((item)=>{
+              return (
+                <img src={item.url} alt="" className="h-[30vh] md:h-auto" />
+              )
+              
+            })} */}
+                            <img src={Banner1} alt="" className="h-[30vh] md:h-auto" />
+                            <img src={Banner2} alt="" className="h-[30vh] md:h-auto" />
+                            <img src={Banner3} alt="" className="h-[30vh] md:h-auto" />
           </Slider>
         </div>
         <div
