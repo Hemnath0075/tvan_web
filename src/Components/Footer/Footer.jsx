@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="w-full h-auto bg-[#dcebed] bottom-0 flex flex-col footer">
+    <div className="w-full h-auto bg-[#ffd1dc] bottom-0 flex flex-col footer">
       <div className="flex flex-col md:flex-row p-[2vw] h-full justify-between w-full">
         {/* <div className="h-full">
           <h2 className="text-[3vmin] font-bold border-b-2 border-black">
@@ -85,28 +85,28 @@ function Footer() {
           </div>
         </div>
         <div className="h-full flex-auto pr-4">
-          <h2 className="text-[3vmin] font-bold border-black text-start">
+          <h2 className="text-[3vmin] font-bold border-black text-start bg-[#ffd1dc]">
             Write to Us
           </h2>
-          <div className="flex flex-col justify-around flex-auto">
+          <div className="flex flex-col justify-around flex-auto bg-[#ffd1dc] text-black">
             <input
               type="text"
-              className="bg-[#dcebed] border-b-2 border-black w-[100%] p-2"
+              className="bg-[#ffd1dc] border-b-2 border-black w-[100%] p-2"
               placeholder="Full Name"
             />
             <input
               type="text"
-              className="bg-[#dcebed] border-b-2 border-black w-[100%] p-2"
+              className="bg-[#ffd1dc] border-b-2 border-black w-[100%] p-2"
               placeholder="Mobile Number"
             />
             <input
               type="text"
-              className="bg-[#dcebed] border-b-2 border-black w-[100%] p-2"
+              className="bg-[#ffd1dc] border-b-2 border-black w-[100%] p-2"
               placeholder="Email"
             />
             <input
               type="text"
-              className="bg-[#dcebed] border-b-2 border-black w-[100%] p-2"
+              className="bg-[#ffd1dc] border-b-2 border-black w-[100%] p-2"
               placeholder="Feedback Message"
             />
             <div className="flex w-[100%] justify-end">
@@ -139,7 +139,7 @@ function Footer() {
         </div> */}
         </div>
       </div>
-      <div className="flex flex-row w-full justify-center items-center bg-[#cbeef2] text-black p-4 border-t-2 border-black">
+      <div className="flex flex-row w-full justify-center items-center bg-[#e063a2] text-black p-4 border-t-2 border-black">
         <div className="">
           <p>© 2023 TVAN Jewellers Private Limited. All rights reserved.</p>
         </div>

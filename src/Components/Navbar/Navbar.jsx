@@ -142,9 +142,11 @@ function Navbar({navigateSections}) {
             onClose={onClose}
             open={open}
           >
-            <p>Home</p>
-            <p></p>
-            <p></p>
+            <p onClick={()=>navigate('/')}>Home</p>
+            <p onClick={()=>navigate('/terms-and-condition')} className="capitalize">Terms and Condition</p>
+            <p onClick={()=>navigate('/refund-policy')} className="capitalize">Refund Policy</p>
+            <p onClick={()=>navigate('/privacy-policy')} className="capitalize">Return Policy</p>
+            <p onClick={()=>navigate('/shipping-policy')} className="capitalize">Shipping Policy</p>
           </Drawer>
         </div>
         {/* <div className="w-full flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
@@ -161,7 +163,7 @@ function Navbar({navigateSections}) {
             <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
           </div>
         </div> */}
-        <div className="w-full flex flex-row items-center bg-[#6ef480] text-black px-2 py-2 rounded-md">
+        <div className="w-full flex flex-row items-center bg-[#ffd1dc] text-black px-2 py-2 rounded-md">
           <div className="">
             <p className="whitespace-nowrap">Live Rate:-</p>
           </div>
@@ -191,7 +193,7 @@ function Navbar({navigateSections}) {
       <div className="hidden w-full bg-white h-[10vh] md:flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
           <img src={logo} alt="" className="h-[8vh]" />
-          <div className="w-[27vw] h-[9vh] flex flex-row gap-4 items-center bg-[#6ef480] text-black px-2 py-2 rounded-md text-sm">
+          <div className="w-[27vw] h-[9vh] flex flex-row gap-4 items-center bg-[#ffd1dc] text-black px-2 py-2 rounded-md text-sm">
             <div className="">
               <p className="whitespace-nowrap">Live Rate:-</p>
             </div>
@@ -303,7 +305,7 @@ function Navbar({navigateSections}) {
           </div>
         </div>
       </div>
-      <div className="hidden w-full bg-[#bcffc5] text-black h-[6vh] md:flex items-center justify-start font-bold gap-[4vw] ">
+      <div className="hidden w-full bg-[#e063a2] text-black h-[6vh] md:flex items-center justify-start font-bold gap-[4vw] ">
 
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200 ml-[3vw]" onClick={()=>navigate('/')}>
           HOME
