@@ -19,10 +19,12 @@ import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
 
 import { Button, Drawer } from "antd";
 import MenuIcon from "../../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 function Navbar({navigateSections}) {
+  const currentPage = useLocation();
+  console.log(currentPage.pathname)
   const navigate = useNavigate();
   const [userDiv, setUserDiv] = useState(false);
   const [isLoginModal, setIsLoginModal] = useState(false);
@@ -35,9 +37,10 @@ function Navbar({navigateSections}) {
   };
 
   const [priceData, setPriceData] = useState([
-    {"SRate":0,
-    "GRate":0,}
+      {"SRate":0,
+      "GRate":0,}
   ]);
+  console.log(priceData)
   const {
     register,
     handleSubmit,
@@ -77,11 +80,17 @@ function Navbar({navigateSections}) {
       console.log(day)
       const formattedDate = `${year}-${month}-${day}`;
       // const data = await axios.get(`http://65.1.2.188:8057/getTodayPrice?date=${formattedDate}`)
-      const data = await axios.post(`https://savingsapi.vedhatechnology.com/api/GetTodaysRate`,{
+      const data = await axios.post(`https://vedhatech-001-site6.gtempurl.com/api`,{
         "date":formattedDate
       })
       console.log("this is from the api",data)
-      setPriceData(data.data)
+      if(data.data===null){
+        setPriceData(  [{"SRate":0,
+        "GRate":0,}])
+      }
+      else{
+        setPriceData(data.data)
+      }
     }
     getTodaysPrice();
   },[])
@@ -97,13 +106,13 @@ function Navbar({navigateSections}) {
           <img
             src={user}
             alt=""
-            className="w-[6vw] h-[5vh] cursor-pointer relative"
+            className="w-[6vw] h-[5vh] cursor-pointer relative mr-[10%]"
             onClick={() => setUserDiv(true)}
             // onMouseLeave={() => setUserDiv(false)}
           />
           {userDiv && (
             <div
-              className="absolute w-[20vw] z-10 bg-white h-[30vh] right-[8%] top-[7%] rounded-md border-2 p-[1%] flex flex-col justify-evenly"
+              className="absolute w-[40vw] md:w-[20vw] right-[1%] h-[30vh] z-10 bg-white md:h-[30vh]  top-[7%] rounded-md border-2 p-[1%] flex flex-col justify-evenly"
               onMouseOver={() => setUserDiv(true)}
               onMouseLeave={() => setUserDiv(false)}
             >
@@ -142,11 +151,9 @@ function Navbar({navigateSections}) {
             onClose={onClose}
             open={open}
           >
-            <p onClick={()=>navigate('/')}>Home</p>
-            <p onClick={()=>navigate('/terms-and-condition')} className="capitalize">Terms and Condition</p>
-            <p onClick={()=>navigate('/refund-policy')} className="capitalize">Refund Policy</p>
-            <p onClick={()=>navigate('/privacy-policy')} className="capitalize">Return Policy</p>
-            <p onClick={()=>navigate('/shipping-policy')} className="capitalize">Shipping Policy</p>
+            <div className="flex flex-col gap-4">
+            <p onClick={()=>navigate('/')} className="border-2 p-2">Home</p>
+            </div>
           </Drawer>
         </div>
         {/* <div className="w-full flex flex-row items-center bg-[#d4f3f7] text-black px-2 py-2 rounded-md">
@@ -253,7 +260,7 @@ function Navbar({navigateSections}) {
             />
             {userDiv && (
               <div
-                className="absolute w-[20vw] z-10 bg-white h-[30vh] right-[8%] top-[7%] rounded-md border-2 p-[1%] flex flex-col justify-evenly"
+                className="absolute w-[30vw] bg-white z-10  h-[40vh] md:h-[30vh] right-0 top-[7%] rounded-md border-2 p-[1%] flex flex-col justify-evenly"
                 onMouseOver={() => setUserDiv(true)}
                 onMouseLeave={() => setUserDiv(false)}
               >
@@ -305,23 +312,23 @@ function Navbar({navigateSections}) {
           </div>
         </div>
       </div>
-      <div className="hidden w-full bg-[#e063a2] text-black h-[6vh] md:flex items-center justify-start font-bold gap-[4vw] ">
+      <div className="hidden w-full bg-[#e063a2] text-white h-[6vh] md:flex items-center justify-start font-bold gap-[4vw]">
 
         <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200 ml-[3vw]" onClick={()=>navigate('/')}>
           HOME
         </h3>
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('category')}>
+        {currentPage.pathname==="/" && <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>{navigateSections('category')}}>
           CATEGORY
-        </h3>
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('products')}>
+        </h3>}
+        {currentPage.pathname==="/" && <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('products')}>
           PRODUCTS
-        </h3>
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('schemes')}>
+        </h3>}
+        {currentPage.pathname==="/" && <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('schemes')}>
           GOLD SCHEME
-        </h3>
-        <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('contactus')}>
+        </h3>}
+        {currentPage.pathname==="/" && <h3 className="cursor-pointer hover:border-b-2 hover:border-blue-200" onClick={()=>navigateSections('contactus')}>
           CONTACT US
-        </h3>
+        </h3>}
       </div>
       <Modal
         open={isModalOpen}

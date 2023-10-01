@@ -25,16 +25,16 @@ function Footer() {
             <a href="#">Platinum</a>
           </div>
         </div> */}
-        <div className="h-full flex-auto md:block hidden">
-          <h2 className="text-[3vmin] font-bold  border-black text-start">
+        <div className="h-full flex-auto md:block">
+          <h2 className="text-[3.5vmin] md:text-[3vmin] font-bold border-black text-start">
             Useful Links
           </h2>
-          <div className="flex flex-col justify-around">
+          <div className="flex flex-col justify-around mt-3 md:mt-0"> 
             <NavLink to="/" onClick={() => window.scrollTo(0, 0)}>
               Home
             </NavLink>
-            <a href="#">About Us</a>
-            <a href="#">Direct Me</a>
+            {/* <a href="#">About Us</a>
+            <a href="#">Direct Me</a> */}
             <NavLink
               to="/terms-and-condition"
               onClick={() => window.scrollTo(0, 0)}
@@ -55,13 +55,13 @@ function Footer() {
             </NavLink>
           </div>
         </div>
-        <div className="flex flex-col h-full font-bold flex-auto justify-center">
-          <h2 className="text-[3vmin] w-auto border-black font-bold text-start">
+        <div className="flex flex-col h-full font-bold flex-auto justify-center mt-6 md:mt-0">
+          <h2 className="text-[3.5vmin] md:text-[3vmin] w-auto border-black font-bold text-start">
             Contact
           </h2>
           <div className="flex flex-col justify-between flex-auto">
-            <div className="flex flex-row justify-start items-center">
-              <img src={location} alt="" className="w-[3vw] h-[5vh]" />
+            <div className="flex flex-row justify-start items-center text-[2.5vmin] md:text-[2vmin]">
+              <img src={location} alt="" className="w-[5vw] h-[5vh] md:w-[3vw] md:h-[5vh] " />
               <p className="w-full md:w-[20vw]">
                 {
                   "Address:-East Car Street, TVAN Corner,Tiruchengode - 637 211. Namakkal District."
@@ -69,22 +69,22 @@ function Footer() {
               </p>
             </div>
             <div className="flex flex-row justify-start items-center">
-              <img src={landline} alt="" className="w-[2vw] h-[5vh]" />
-              <p className="w-full md:w-[20vw]">
+              <img src={landline} alt="" className="w-[5vw] h-[5vh] md:w-[3vw] md:h-[5vh] " />
+              <p className="w-full md:w-[20vw] text-[2.5vmin] md:text-[2vmin]">
                 {"(04288) 252591, 256081, 253591"}
               </p>
             </div>
             <div className="flex flex-row justify-start items-center">
-              <img src={mobile} alt="" className="w-[2vw] h-[5vh]" />
-              <p className="w-full md:w-[20vw]">{"+91 97885 35555"}</p>
+              <img src={mobile} alt="" className="w-[5vw] h-[5vh] md:w-[3vw] md:h-[5vh] " />
+              <p className="w-full md:w-[20vw] text-[2.5vmin] md:text-[2vmin]">{"+91 97885 35555"}</p>
             </div>
             <div className="flex flex-row justify-start items-center">
-              <img src={mail} alt="" className="w-[2vw] h-[4vh]" />
-              <p className="w-full md:w-[20vw]">{"tvangold@gmail.com"}</p>
+              <img src={mail} alt="" className="w-[5vw] h-[5vh] md:w-[3vw] md:h-[5vh] " />
+              <p className="w-full md:w-[20vw] text-[2.5vmin] md:text-[2vmin]">{"tvangold@gmail.com"}</p>
             </div>
           </div>
         </div>
-        <div className="h-full flex-auto pr-4">
+        <div className="h-full flex-auto pr-4 mt-4 md:mt-0">
           <h2 className="text-[3vmin] font-bold border-black text-start bg-[#ffd1dc]">
             Write to Us
           </h2>
@@ -139,7 +139,7 @@ function Footer() {
         </div> */}
         </div>
       </div>
-      <div className="flex flex-row w-full justify-center items-center bg-[#e063a2] text-black p-4 border-t-2 border-black">
+      <div className="flex flex-row w-full justify-center items-center bg-[#e063a2] text-white p-4 border-t-2 border-black">
         <div className="">
           <p>© 2023 TVAN Jewellers Private Limited. All rights reserved.</p>
         </div>

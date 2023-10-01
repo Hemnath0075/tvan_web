@@ -353,7 +353,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <Footer ref={contactusRef} />
+      <Footer ref={contactusRef}/>
     </div>
   );
 }
