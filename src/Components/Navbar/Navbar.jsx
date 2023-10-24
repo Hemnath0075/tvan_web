@@ -72,7 +72,7 @@ function Navbar({navigateSections}) {
   useEffect(()=>{
     const getTodaysPrice=async()=>{
       const currentDate = new Date();
-      console.log(currentDate)
+      console.log(currentDate-19e5)
       // Extract year, month, and day from the date
       const year = currentDate.getFullYear();
       const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
