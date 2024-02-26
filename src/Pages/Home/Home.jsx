@@ -138,12 +138,12 @@ function Home() {
   };
   
   useEffect(() => {
-    const getImages =async () => {
-      const getBanner = await axios.get('http://localhost:8057/admin/images/banner')
-      console.log(getBanner.data);
-      setBannerImages(getBanner.data);
-    };
-    getImages();
+    // const getImages =async () => {
+    //   const getBanner = await axios.get('http://localhost:8057/admin/images/banner')
+    //   console.log(getBanner.data);
+    //   setBannerImages(getBanner.data);
+    // };
+    // getImages();
   }, []);
   return (
     <div className="min-h-screen w-full bg-white">
@@ -151,15 +151,15 @@ function Home() {
       <div className="">
         <div className="">
           <Slider {...sliderSettings}>
-            {bannerImages?.map((item)=>{
+            {/* {bannerImages?.map((item)=>{
               return (
                 <img src={item.url} alt="" className="h-[30vh] md:h-auto" />
               )
               
-            })}
-                            {/* <img src={Banner1} alt="" className="h-[30vh] md:h-auto" />
+            })} */}
+                            <img src={Banner1} alt="" className="h-[30vh] md:h-auto" />
                             <img src={Banner2} alt="" className="h-[30vh] md:h-auto" />
-                            <img src={Banner3} alt="" className="h-[30vh] md:h-auto" /> */}
+                            <img src={Banner3} alt="" className="h-[30vh] md:h-auto" />
           </Slider>
         </div>
         <div

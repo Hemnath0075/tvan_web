@@ -20,6 +20,7 @@ import whatsapp from "../../assets/icons/whatsapp-svgrepo-com.svg";
 import { Button, Drawer } from "antd";
 import MenuIcon from "../../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg";
 import { useLocation, useNavigate } from "react-router-dom";
+import { rate } from "../../rate";
 
 
 function Navbar({navigateSections}) {
@@ -36,10 +37,7 @@ function Navbar({navigateSections}) {
     setOpen(false);
   };
 
-  const [priceData, setPriceData] = useState([
-      {"SRate":0,
-      "GRate":0,}
-  ]);
+  const [priceData, setPriceData] = useState(rate);
   console.log(priceData)
   const {
     register,
@@ -70,29 +68,29 @@ function Navbar({navigateSections}) {
   };
 
   useEffect(()=>{
-    const getTodaysPrice=async()=>{
-      const currentDate = new Date();
-      console.log(currentDate-19e5)
-      // Extract year, month, and day from the date
-      const year = currentDate.getFullYear();
-      const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
-      const day = String(currentDate.getDate()).padStart(2, '0');
-      console.log(day)
-      const formattedDate = `${year}-${month}-${day}`;
-      // const data = await axios.get(`http://65.1.2.188:8057/getTodayPrice?date=${formattedDate}`)
-      const data = await axios.post(`https://vedhatech-001-site6.gtempurl.com/api`,{
-        "date":formattedDate
-      })
-      console.log("this is from the api",data)
-      if(data.data===null){
-        setPriceData(  [{"SRate":0,
-        "GRate":0,}])
-      }
-      else{
-        setPriceData(data.data)
-      }
-    }
-    getTodaysPrice();
+    // const getTodaysPrice=async()=>{
+    //   const currentDate = new Date();
+    //   console.log(currentDate-19e5)
+    //   // Extract year, month, and day from the date
+    //   const year = currentDate.getFullYear();
+    //   const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Subtract 1 from the month and pad with '0' if needed
+    //   const day = String(currentDate.getDate()).padStart(2, '0');
+    //   console.log(day)
+    //   const formattedDate = `${year}-${month}-${day}`;
+    //   // const data = await axios.get(`http://65.1.2.188:8057/getTodayPrice?date=${formattedDate}`)
+    //   const data = await axios.post(`https://vedhatech-001-site6.gtempurl.com/api`,{
+    //     "date":formattedDate
+    //   })
+    //   console.log("this is from the api",data)
+    //   if(data.data===null){
+    //     setPriceData(  [{"srate":0,
+    //     "grate":0,}])
+    //   }
+    //   else{
+    //     setPriceData(data.data)
+    //   }
+    // }
+    // getTodaysPrice();
   },[])
   console.log(priceData)
 
@@ -170,32 +168,7 @@ function Navbar({navigateSections}) {
             <img src={whatsapp} alt="" className="w-[2vw] h-[4vh]" />
           </div>
         </div> */}
-        <div className="w-full flex flex-row items-center bg-[#ffd1dc] text-black px-2 py-2 rounded-md">
-          <div className="">
-            <p className="whitespace-nowrap">Live Rate:-</p>
-          </div>
-          <Slider {...sliderSettings}>
-            <h3>
-              {" "}
-              Gold 22K 1 Gram –{" "}
-              <span className="text-black">
-                <span className="rupee_text">₹</span> {parseInt(priceData[0]?.GRate).toFixed(0)}
-              </span>
-            </h3>
-            <h3>
-              Gold 22k 8 Gram –{" "}
-              <span className="text-black">
-                <span className="rupee_text">₹</span> {parseInt(priceData[0]?.GRate * 8).toFixed(0)}
-              </span>
-            </h3>
-            <h3>
-              Silver 1 Gram –{" "}
-              <span className="text-black">
-                <span className="rupee_text">₹</span> {priceData[0]?.SRate}
-              </span>
-            </h3>
-          </Slider>
-        </div>
+        
       </div>
       <div className="hidden w-full bg-white h-[10vh] md:flex items-center justify-between">
         <div className="flex justify-center items-center gap-[4%] ml-4">
@@ -210,20 +183,20 @@ function Navbar({navigateSections}) {
                 {" "}
                 Gold 22K 1 Gram –{" "}
                 <span className="text-black">
-                  <span className="rupee_text">₹</span> {parseInt(priceData[0]?.GRate).toFixed(0)}
+                  <span className="rupee_text">₹</span> {parseInt(priceData[0]?.grate).toFixed(0)}
                 </span>
               </h3>
               <h3>
                 Gold 22k 8 Gram –{" "}
                 <span className="text-black">
                   <span className="rupee_text">₹</span>{" "}
-                  {parseInt(priceData[0]?.GRate * 8).toFixed(0)}
+                  {parseInt(priceData[0]?.grate * 8).toFixed(0)}
                 </span>
               </h3>
               <h3>
                 Silver 1 Gram –{" "}
                 <span className="text-black">
-                  <span className="rupee_text">₹</span> {priceData[0]?.SRate}
+                  <span className="rupee_text">₹</span> {priceData[0]?.srate}
                 </span>
               </h3>
             </div>
